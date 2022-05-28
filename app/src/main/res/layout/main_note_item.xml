@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.hakretcode.stickynote.data.model.Note" />
+        <variable
+            name="note"
+            type="Note" />
+        <variable
+            name="onItemClick"
+            type="java.util.function.Consumer&lt;Note>" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/NoteParamStyle"
+        android:layout_marginTop="12dp"
+        android:onClickListener="@{() -> onItemClick.accept(note)}"
+        app:cardBackgroundColor="?colorSurface"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/check_box"
+                android:visibility="gone"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title"
+                app:layout_constraintBottom_toBottomOf="@id/title" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/NoteContent.Title"
+                android:ellipsize="end"
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@id/check_box"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{note.title}"
+                tools:text="Test jdjjdkkff" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/NoteContent.Body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{note.body}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Olá. Me chamo beto e isso aqui é um teste. Nos ultimos anos eu fiquei muito bom em escrever no computador. Escrevo super rapido, até mais que no celular e ainda com uma margem de erro menor. Test preciso escrever mais pra ver até onde esse texto vai, kkkk não sei mais oq falar, até coloquei virgula sem querer kkk parei fds a picadilhas let's go, todo mundo louco"
+                 />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

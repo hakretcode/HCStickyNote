@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HC Sticky Note</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="no_notes">No notes</string>
+    <string name="delete">Delete</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="note"
+            type="com.hakretcode.stickynote.data.model.Note" />
+        <variable
+            name="fragment"
+            type="com.hakretcode.stickynote.ui.form.FormFragment" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:onClickListener="@{() -> null}"
+    android:layout_height="match_parent"
+    android:background="#CCEAE9EE">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/form_note"
+        style="@style/NoteParamStyle"
+        android:orientation="horizontal"
+        app:cardBackgroundColor="?colorSurface"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toTopOf="@id/center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/NoteContent.Title"
+                android:autofillHints="name"
+                android:hint="@string/title"
+                android:id="@+id/et_title"
+                android:inputType="text"
+                android:text="@{note.title}"
+                tools:text="Test jdjjdkkff" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/NoteContent.Body"
+                android:hint="@string/content"
+                android:id="@+id/et_body"
+                android:text="@{note.body}"
+                tools:text="Olá. Me chamo beto e isso aqui é um teste. Nos ultimos anos eu fiquei muito bom em escrever no computador. Escrevo super rapido, até mais que no celular e ainda com uma margem de erro menor. Test preciso escrever mais pra ver até onde esse texto vai, kkkk não sei mais oq falar, até coloquei virgula sem querer kkk parei fds a picadilhas let's go, todo mundo louco" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/center"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/FormButton"
+        android:id="@+id/button_close"
+        android:onClickListener="@{fragment::returnToHome}"
+        app:icon="@drawable/ic_close"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/center"
+        app:layout_constraintTop_toBottomOf="@id/center" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/FormButton"
+        app:icon="@drawable/ic_check"
+        android:id="@+id/button_ready"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/center"
+        app:layout_constraintTop_toBottomOf="@id/center" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
